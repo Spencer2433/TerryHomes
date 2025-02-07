@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terry Homes - Your Perfect Stay</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to Terry Homes</h1>
+    <p>Your perfect getaway destination</p>
+  </header>
+
+  <section id="booking">
+    <h2>Book Your Stay</h2>
+    <form id="booking-form">
+      <label for="check-in">Check-In:</label>
+      <input type="date" id="check-in" required>
+
+      <label for="check-out">Check-Out:</label>
+      <input type="date" id="check-out" required>
+
+      <label for="guests">Guests:</label>
+      <input type="number" id="guests" min="1" required>
+
+      <button type="submit">Check Availability</button>
+    </form>
+  </section>
+
+  <section id="gallery">
+    <h2>Our Properties</h2>
+    <div class="house-gallery">
+      <!-- House 1 -->
+      <div class="house">
+        <h3>House 1</h3>
+        <div class="photos">
+          <img src="images/house1a.png" alt="House 1 Photo 1">
+          <img src="images/house1b.png" alt="House 1 Photo 2">
+          <img src="images/house1c.png" alt="House 1 Photo 3">
+          <img src="images/house1d.png" alt="House 1 Photo 4">
+          <img src="images/house1e.png" alt="House 1 Photo 5">
+          <img src="images/house1f.png" alt="House 1 Photo 6">
+        </div>
+      </div>
+
+      <!-- Repeat for Houses 2 to 6 -->
+      <!-- House 2 -->
+      <div class="house">
+        <h3>House 2</h3>
+        <div class="photos">
+          <img src="images/house2a.png" alt="House 2 Photo 1">
+          <img src="images/house2b.png" alt="House 2 Photo 2">
+          <img src="images/house2c.png" alt="House 2 Photo 3">
+          <img src="images/house2d.png" alt="House 2 Photo 4">
+          <img src="images/house2e.png" alt="House 2 Photo 5">
+          <img src="images/house2f.png" alt="House 2 Photo 6">
+        </div>
+      </div>
+
+      <!-- Add Houses 3 to 6 similarly -->
+    </div>
+  </section>
+
+  <footer>
+    <h2>Contact Us</h2>
+    <p>Phone: <a href="tel:0713186796">0713 186 796</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
