@@ -1,84 +1,96 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  header {
-    background: #007BFF;
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1, h2, h3 {
-    margin: 0;
-  }
-  
-  section {
-    padding: 20px;
-  }
-  
-  #booking-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  
-  #booking-form input, #booking-form button {
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  .house-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  
-  .house {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background: #007BFF;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+}
+
+section {
+  padding: 20px;
+}
+
+#about {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#booking-form input, #booking-form button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.property-type {
+  margin-bottom: 30px;
+}
+
+.house-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.house {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.photos img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+footer a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
   .photos {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .photos img {
-    width: 100%;
-    border-radius: 8px;
+
+  #booking-form {
+    max-width: 100%;
   }
-  
-  footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-  }
-  
-  footer a {
-    color: #007BFF;
-    text-decoration: none;
-  }
-  
-  /* Mobile Responsiveness */
-  @media (max-width: 600px) {
-    .photos {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  
-    #booking-form {
-      max-width: 100%;
-    }
-  }
+}
