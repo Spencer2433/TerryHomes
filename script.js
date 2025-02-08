@@ -41,3 +41,26 @@ document.getElementById('booking-form').addEventListener('submit', async functio
     alert(availabilityData.message);
   }
 });
+
+async function updateAvailability() {
+  const properties = ['bedsitter1', 'onebed1', 'twobed1'];
+
+  for (const property of properties) {
+    const response = await fetch('http://localhost:3000/check-availability', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ property }),
+    });
+
+    const data = await response.json();
+
+    const propertyElement = document.getElementById(property);
+    if (propertyElement) {
+      propertyElement.textContent = data.available ? "Available" : "Booked";
+      propertyElement.style.color = data.available ? "green" : "red";
+    }
+  }
+}
+
+// Call the function when the page loads
+window.onload = updateAvailability;
