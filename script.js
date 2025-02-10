@@ -1,25 +1,17 @@
-// Booking Form Submission
-document.getElementById('booking-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const checkIn = document.getElementById('check-in').value;
-    const checkOut = document.getElementById('check-out').value;
-    const guests = document.getElementById('guests').value;
-  
-    alert(`Booking Request:\nCheck-In: ${checkIn}\nCheck-Out: ${checkOut}\nGuests: ${guests}`);
-  });
-
 document.getElementById('booking-form').addEventListener('submit', async function (e) {
   e.preventDefault();
 
-  const property = prompt("Enter the property you want to book (e.g., bedsitter1, onebed1, twobed1):");
-
-  if (!property) return;
+  const property = document.getElementById('property').value;
+  const checkIn = document.getElementById('check-in').value;
+  const checkOut = document.getElementById('check-out').value;
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
 
   // Check availability
   const availabilityResponse = await fetch('http://localhost:3000/check-availability', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ property }),
+    body: JSON.stringify({ property, checkIn, checkOut }),
   });
 
   const availabilityData = await availabilityResponse.json();
@@ -31,7 +23,7 @@ document.getElementById('booking-form').addEventListener('submit', async functio
       const bookingResponse = await fetch('http://localhost:3000/book-property', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ property }),
+        body: JSON.stringify({ property, checkIn, checkOut, client: { name, phone } }),
       });
 
       const bookingData = await bookingResponse.json();
@@ -41,26 +33,3 @@ document.getElementById('booking-form').addEventListener('submit', async functio
     alert(availabilityData.message);
   }
 });
-
-async function updateAvailability() {
-  const properties = ['bedsitter1', 'onebed1', 'twobed1'];
-
-  for (const property of properties) {
-    const response = await fetch('http://localhost:3000/check-availability', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ property }),
-    });
-
-    const data = await response.json();
-
-    const propertyElement = document.getElementById(property);
-    if (propertyElement) {
-      propertyElement.textContent = data.available ? "Available" : "Booked";
-      propertyElement.style.color = data.available ? "green" : "red";
-    }
-  }
-}
-
-// Call the function when the page loads
-window.onload = updateAvailability;
